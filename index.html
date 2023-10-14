@@ -42,6 +42,8 @@
                             <li><a class="dropdown-item" href="index.html">Jumlah Penduduk</a></li>
                             <li><a class="dropdown-item" href="penduduk_jeniskelamin.html">Jumlah Rasio Jenis Kelamin</a></li>
                             <li><a class="dropdown-item" href="jumlah_restoran.html">Jumlah Restoran</a></li>
+                            <li><a class="dropdown-item" href="jumlah_sd.html">Jumlah Sekolah Dasar</a></li>
+                            <li><a class="dropdown-item" href="jumlah_dokter.html">Jumlah Dokter</a></li>
                             
                                 <hr class="dropdown-divider">
                             </li>
@@ -101,64 +103,21 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        var options = {
-            series: [{
-                name: 'Jumlah Penduduk',
-                data: [92890.00, 199283.00, 368603.00, 252262.00, 219261.00, 418420.00, 197187.00]
-            }],
-            chart: {
-                type: 'bar',
-                height: 350
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded',
-                    dataLabels: {
-                        position: 'top',
-                    }
-                },
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-            },
-            xaxis: {
-                categories: [
-                    "Setu", "Serpong", "Pamulang", "Ciputat", "Ciputat Timur", "Pondok Aren", "Serpong Utara"],
-                title: {}
-            },
-            yaxis: {
-                title: {
-                    text: 'jiwa'
-                }
-            },
-            fill: {
-                opacity: 1
-            },
-            tooltip: {
-                y: {
-                    formatter: function (val) {
-                        return "$ " + val + " thousands"
-                    }
-                }
-            },
-            dataLabels: {
-                enabled: true,
-                formatter: function (val) {
-                    return val;
-                },
-                offsetY: -20,
-                style: {
-                    fontSize: '12px',
-                    colors: ["#304758"]
-                }
-            },
+          var options = {
+          series: [{
+          name: 'Series 1',
+          data: [86357, 156922, 308219, 210887, 172542, 295687, 135074],
+        }],
+          chart: {
+          height: 350,
+          type: 'radar',
+        },
+        title: {
+          text: 'Basic Radar Chart'
+        },
+        xaxis: {
+          categories: ["Setu", "Serpong", "Pamulang", "Ciputat", "Ciputat Timur", "Pondok Aren", "Serpong Utara"]
+        }
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);

@@ -61,7 +61,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h5>Jumlah Restoran</h5>
+                <h5>Jumlah Sekolah Dasar</h5>
             </div>
             <div class="card-body">
                 <div id="chart">
@@ -103,24 +103,37 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        var options = {
-          series: [131, 141, 198, 19, 36, 46],
+         var options = {
+          series: [15, 56, 69, 56, 28, 73, 34],
           chart: {
-          type: 'donut',
-          width: 500
+          width: '50%',
+          type: 'pie',
         },
-        labels:['Kurang Banyak', 'Cukup Banyak', 'Banyak', 'Lebih Banyak', 'Sangat Banyak', 'Sangat Lebih' ],
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: 'bottom'
+        labels: ["Setu", "Serpong", "Pamulang", "Ciputat", "Ciputat Timur", "Pondok Aren", "Serpong Utara"],
+        theme: {
+          monochrome: {
+            enabled: true
+          }
+        },
+        plotOptions: {
+          pie: {
+            dataLabels: {
+              offsetY: -20
             }
           }
-        }]
+        },
+        title: {
+          text: "Monochrome Pie"
+        },
+        dataLabels: {
+          formatter(val, opts) {
+            const name = opts.w.globals.labels[opts.seriesIndex]
+            return [name, val.toFixed(1) + '%']
+          }
+        },
+        legend: {
+          show: false
+        }
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);

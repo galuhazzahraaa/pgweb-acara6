@@ -61,7 +61,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h5>Jumlah Restoran</h5>
+                <h5>Jumlah Dokter</h5>
             </div>
             <div class="card-body">
                 <div id="chart">
@@ -103,24 +103,55 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        var options = {
-          series: [131, 141, 198, 19, 36, 46],
+         var options = {
+          series: [
+          {
+            name: "",
+            data: [79, 212, 176, 154, 60, 182, 81],
+          },
+        ],
           chart: {
-          type: 'donut',
-          width: 500
+          type: 'bar',
+          height: 350,
         },
-        labels:['Kurang Banyak', 'Cukup Banyak', 'Banyak', 'Lebih Banyak', 'Sangat Banyak', 'Sangat Lebih' ],
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }]
+        plotOptions: {
+          bar: {
+            borderRadius: 0,
+            horizontal: true,
+            distributed: true,
+            barHeight: '80%',
+            isFunnel: true,
+          },
+        },
+        colors: [
+          '#F44F5E',
+          '#E55A89',
+          '#D863B1',
+          '#CA6CD8',
+          '#B57BED',
+          '#8D95EB',
+          '#62ACEA',
+          '#4BC3E6',
+        ],
+        dataLabels: {
+          enabled: true,
+          formatter: function (val, opt) {
+            return opt.w.globals.labels[opt.dataPointIndex] 
+          },
+          dropShadow: {
+            enabled: true,
+          },
+        },
+        title: {
+          text: 'Pyramid Chart',
+          align: 'middle',
+        },
+        xaxis: {
+          categories: ['Setu', 'Serpong', 'Pamulang', 'Ciputat', 'Ciputat Timur', 'Pondok Aren', 'Serpong Utara'],
+        },
+        legend: {
+          show: false,
+        },
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
